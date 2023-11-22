@@ -18,7 +18,7 @@ public class Main {
 //        int firs_Prime = 3;
 //        int second_Prime = 127;
         algorithmRSA(firs_Prime, second_Prime);
-        System.out.println("\n Text message: " + "\n" + message_In);
+        System.out.print("\n Text message: " + "\n" + message_In);
 //        System.out.println("\n Array message ASCII:");
         int[] msg_Encypt = convert_ASCII_Encrypt(message_In);
 //        System.out.println("\n Encoded array: ");
@@ -30,10 +30,8 @@ public class Main {
         System.out.printf("\nDecrypted message: " + "\n" + message_Out);
     }
 
-
     private static String getString() {
         return "The only gripe I have of the V3, is the width. It occupies the entire height of a breadboard from the outer 5-pin sockets.. One hack someone suggested, getting a short Minimum 15-pin width (5X15) breadboard, and sawing it right down the center, so the 5-point rails could be placed further apart. (have done so already with an old Radio shack breadboard. 276-0003, and cut it right down the center of the chip area.). I’m still trying to figure out LUA on both the -01 & the -12 on the Lolin.. (had been running stock NodeMCU, recently updated to a custom from https://nodemcu-build.com/ (does the build from the V2.1.0 source, allowing you to pick which modules to add, then EMAILS You the Float & Integer firmwares.)";
-
     }
 
     private static StringBuilder reconvert_ASCII(int[] msg_Decrypt) {
@@ -48,7 +46,7 @@ public class Main {
 
     private static int[] decrypt(int[] msg_Encypt) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter Private Key value: ");
+        System.out.print("\nEnter Private Key value: ");
         int input_Private_Key = scanner.nextInt();
         int[] msg_Decrypted = new int[msg_Encypt.length];
         for (int i = 0; i < msg_Encypt.length; i++) {
@@ -79,7 +77,6 @@ public class Main {
         }
         int private_Key = d;
 
-
         System.out.print("Euler function = " + euler_Fun + ";");
         System.out.print("\nThe first part of public key: = " + module + ";");
         System.out.print("\n1 < Public Key = " + public_Key + " < " + euler_Fun + ";");
@@ -108,8 +105,10 @@ public class Main {
     private static int[] encrypt(int[] charArray) {
         int encrypted_text;
         int e;
-        int[] msgArray_Temp = new int[charArray.length];
-        StringBuilder msg = new StringBuilder();
+        int[] msgArray_Temp;
+        msgArray_Temp = new int[charArray.length];
+        StringBuilder msg;
+        msg = new StringBuilder();
         for (int i = 0; i < charArray.length; i++) {
             e = public_Key;
             encrypted_text = 1;
@@ -121,7 +120,7 @@ public class Main {
             msg.append(encrypted_text);
             msgArray_Temp[i] = encrypted_text;
         }
-        System.out.println("\n Encoded text: " + msg);
+        //System.out.println("\n Encoded text: " + msg);
         return msgArray_Temp;
     }
 
