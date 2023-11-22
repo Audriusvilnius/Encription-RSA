@@ -1,13 +1,12 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
     private static int public_Key;
     private static int module;
+
     public static void main(String[] args) {
 
         String message_In = getString();
-        int[] msgArray = new int[message_In.length()];
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nEnter the value of n: ");
         int value = scanner.nextInt();
@@ -39,7 +38,7 @@ public class Main {
 
     private static StringBuilder reconvert_ASCII(int[] msg_Decrypt) {
         StringBuilder reconvert_Msg = new StringBuilder();
-        String chars = null;
+        String chars;
         for (int j : msg_Decrypt) {
             chars = Character.toString((char) j);
             reconvert_Msg.append(chars);
@@ -106,9 +105,8 @@ public class Main {
 //        System.out.print(Arrays.toString(charArray));
         return encrypt(charArray);
     }
-
     private static int[] encrypt(int[] charArray) {
-        int encrypted_text = 1;
+        int encrypted_text;
         int e;
         int[] msgArray_Temp = new int[charArray.length];
         StringBuilder msg = new StringBuilder();
@@ -123,17 +121,15 @@ public class Main {
             msg.append(encrypted_text);
             msgArray_Temp[i] = encrypted_text;
         }
-//        System.out.println("\n Encoded text: " + msg);
+        System.out.println("\n Encoded text: " + msg);
         return msgArray_Temp;
     }
 
     private static void primeNumber(int value) {
-        int i = 0;
-        int num = 0;
         StringBuilder primeNumbers = new StringBuilder();
-        for (i = 1; i <= value; i++) {
+        for (int i = 1; i <= value; i++) {
             int counter = 0;
-            for (num = i; num >= 1; num--) {
+            for (int num = i; num >= 1; num--) {
                 if (i % num == 0) {
                     counter = counter + 1;
                 }
