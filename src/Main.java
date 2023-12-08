@@ -1,11 +1,9 @@
 import java.util.Scanner;
-
 public class Main {
     private static int public_Key;
     private static int module;
 
     public static void main(String[] args) {
-
         String message_In = getString();
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nEnter the value of n: ");
@@ -15,17 +13,10 @@ public class Main {
         int firs_Prime = scanner.nextInt();
         System.out.print("Enter Last prime number: ");
         int second_Prime = scanner.nextInt();
-//        int firs_Prime = 3;
-//        int second_Prime = 127;
         algorithmRSA(firs_Prime, second_Prime);
         System.out.print("\n Text message: " + "\n" + message_In);
-//        System.out.println("\n Array message ASCII:");
         int[] msg_Encypt = convert_ASCII_Encrypt(message_In);
-//        System.out.println("\n Encoded array: ");
-//        System.out.println(Arrays.toString(msg_Encypt));
         int[] msg_Decrypt = decrypt(msg_Encypt);
-//        System.out.println("\n Decrypted array: ");
-//        System.out.print(Arrays.toString(msg_Decrypt));
         String message_Out = String.valueOf(reconvert_ASCII(msg_Decrypt));
         System.out.printf("\nDecrypted message: " + "\n" + message_Out);
     }
@@ -61,17 +52,16 @@ public class Main {
         }
         return msg_Decrypted;
     }
-
     private static void algorithmRSA(int firs_Prime, int second_Prime) {
         module = firs_Prime * second_Prime;
         int euler_Fun = (firs_Prime - 1) * (second_Prime - 1);
-        int e = 2;
+        int e = firs_Prime;
         while (gcd(e, euler_Fun) != 1) {
             e += 1;
         }
         public_Key = e;
 
-        int d = 2;
+        int d = second_Prime;
         while ((d * public_Key) % euler_Fun != 1) {
             d += 1;
         }
@@ -99,7 +89,6 @@ public class Main {
         for (int i = 0; i < name.length(); i++) {
             charArray[i] = (int) name.charAt(i);
         }
-//        System.out.print(Arrays.toString(charArray));
         return encrypt(charArray);
     }
     private static int[] encrypt(int[] charArray) {
@@ -120,7 +109,6 @@ public class Main {
             msg.append(encrypted_text);
             msgArray_Temp[i] = encrypted_text;
         }
-        //System.out.println("\n Encoded text: " + msg);
         return msgArray_Temp;
     }
 
