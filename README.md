@@ -5,3 +5,4 @@
 * Enter First prime number:  - pirmas pirminis skaicius n1;
 * Enter Last prime number: - paskutinis pirminis skaicius n2;
 * Enter Private Key value: - privataus rakto reiksme dekodavimui.
+### function getString  - koduojamo teksto ivedimas.
